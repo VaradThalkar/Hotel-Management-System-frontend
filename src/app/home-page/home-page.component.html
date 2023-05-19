@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-sm navbar-da" style="background-color:black">
+    <div class="container-fluid">
+        <button (click)="back()"class="btn btn-primary navbar-btn"style="width:80;height: 35;">Go Back</button>   
+ 
+  <ul class = "nav navbar-nav">
+    
+     <button class="home"(click)="contactUs()"> <i class="fa fa-phone"></i>ContactUs</button>
+     <button class="home"(click)="userProfile()"> <i  class="bi bi-person"></i>Profile</button>
+     <button class="home"(click)="reservationDetails()"> <i  class="bi bi-person"></i>Reservations</button> 
+  </ul>
+  <button (click)="logOut()"class="btn btn-danger navbar-btn">Log out</button>
+    </div>
+ </nav>
+ 
+ <h4 style="text-align: center;"><b style="color:red;">Explore </b>and find <b style="color:yellowgreen">Hotels</b> in <b style="color:dodgerblue">Alibag</b>
+    <div class=""><input type="text" name="searchbar"  (keyup)="searchbar()" placeholder="Search"  [(ngModel)]="searchField" ></div>
+    
+    <table class="table table-striped">
+      <thead>
+          <tr>
+              <th>HotelId</th>
+              <th>HotelName</th>
+              <th>address</th>
+              <th>numberOfRooms</th>
+              <th>Price</th>
+              <th>Booking</th>
+          </tr>
+      </thead>
+      <tbody>
+        <tr 
+          *ngFor="let hotel of filteredData" >
+              <td>{{hotel.hotelId}}</td>
+              <td>{{hotel.hotelName}}</td>
+              <td>{{hotel.address}}</td>
+              <td>{{hotel.numberOfRooms}}</td>
+              <td>{{hotel.price}}</td>
+              <td><button (click)="bookReservation(hotel.hotelId,hotel.price)">Book</button></td>
+          </tr>
+      </tbody>
+  </table>
+   <!--<div class="row">
+         <span *ngFor = "let hotel of hotels" >
+            <div class="card" >
+            {{hotel.hotelName}}{{hotel.address}} {{hotel.numberOfRooms}}<button (click)="getRoomList(hotel.hotelId)">Book</button>
+            </div>
+         </span>
+         <br>
+      </div>-->
+   

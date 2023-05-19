@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-sm navbar-da" style="background-color:black">
+    <div class="container-fluid">
+      <button onclick="history.back()"class="btn btn-primary navbar-btn"style="width:80;height: 35;">Go Back</button>   
+      <button (click)="logOut()"class="btn btn-danger navbar-btn">Log out</button>
+    </div>
+  </nav>
+<h2>User List</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>userId</th>
+            <th>userName</th>
+            <th>name</th>
+            <th>contactNumber</th>
+            <th>aadharNumber</th>
+            <th>active</th>
+            <th>roles</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users" >
+            <td>{{user.userid}}</td>
+            <td>{{user.userName}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.contactNumber}}</td>
+            <td>{{user.aadharNumber}}</td>
+            <td>{{user.active}}</td>
+            <td>{{user.roles}}</td>
+        </tr>
+    </tbody>
+</table>

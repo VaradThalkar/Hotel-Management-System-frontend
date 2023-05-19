@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-sm navbar-da" style="background-color:black">
+    <div class="container-fluid">
+        <button (click)="back()"class="btn btn-primary navbar-btn"style="width:80;height: 35;">Go Back</button>   
+ 
+  <ul class = "nav navbar-nav">
+    
+     <button id="home"(click)="contactUs()"> <i class="fa fa-phone"></i>ContactUs</button>
+     <button id="home"(click)="userProfile()"> <i  class="bi bi-person"></i>Profile</button>
+     <button id="home"(click)="reservationDetails()"> <i  class="bi bi-person"></i>Reservations</button>
+ 
+ 
+  </ul>
+  <button (click)="logOut()"class="btn btn-danger navbar-btn">Log out</button>
+    </div>
+ </nav>
+ <h4 style="text-align: center;"><b style="color:red;">Explore </b>and find <b style="color:yellowgreen">Hotels</b> in <b style="color:dodgerblue">Alibag</b>
+   <table class="table table-striped">
+      <thead>
+          <tr>
+            <th>reservationId</th>
+              <th>hotelId</th>
+              <th>checkInDate</th>
+              <th>checkOutDate</th>
+              <th>userId</th>
+              <th>Price</th>
+              <th>action</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let reservation of reservations" >
+            <td>{{reservation.reservationId}}</td>
+              <td>{{reservation.hotelId}}</td>
+              <td>{{reservation.checkIn}}</td>
+              <td>{{reservation.checkOut}}</td>
+              <td>{{reservation.userId}}</td>
+              <td>{{reservation.price}}</td>
+              <td><button (click)="updateReservation(reservation.reservationId)">Update</button></td>
+              <td><button (click)="cancelReservations(reservation.reservationId)">Cancel Booking</button></td>
+              <td><button (click)="viewReceipt(reservation.userId,reservation.paymentId)">view Receipt</button></td>
+          </tr>
+      </tbody>
+  </table>

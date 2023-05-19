@@ -1,0 +1,9 @@
+.card {
+    display: flex; /* Enable flexbox layout */
+    justify-content: center; /* Center the contents horizontally */
+  }
+/*.home{
+  border-radius: 10px 10px 10px 10px;
+  padding: 7px;
+  background-color:aquamarine;
+}*/

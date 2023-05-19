@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-sm navbar-da" style="background-color:black">
+    <div class="container-fluid">
+      <button onclick="history.back()"class="btn btn-primary navbar-btn"style="width:80;height: 35;">Go Back</button>   
+      <button (click)="logOut()"class="btn btn-danger navbar-btn">Log out</button>
+    </div>
+  </nav> 
+    <div class="col-md-8">
+        <div class="p-3 py-5">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h6 class="text-right">Reservations Date Selection</h6>
+            </div>
+            hotelId
+            <div class="col-md-6"><input type="text" class="form-control" [(ngModel)]="reservation.hotelId" placeholder="contact number"required #contactNumber="ngModel"
+                [class.is-invalid]="contactNumber.invalid&&contactNumber.touched" disabled/>
+                <!-- <small class="text-danger" [class.d-none]="phonenumber.valid||phonenumber.untouched">Required field</small> -->
+                <div *ngIf="contactNumber.errors && (contactNumber.invalid && contactNumber.touched)">
+                    <small class="text-danger" *ngIf="contactNumber.errors?.['required']">required field</small>
+                    <small class="text-danger"*ngIf="contactNumber.errors?.['pattern']">enter a valid phone number</small>
+                </div>
+            </div>
+            <br>
+            <br>
+            UserId
+            <div class="col-md-6"><input type="text" class="form-control" [(ngModel)]="reservation.userId" required #userId="ngModel"
+                [class.is-invalid]="userId.invalid&&userId.touched" disabled/>
+                <div *ngIf="userId.errors && (userId.invalid && userId.touched)">
+                    <small class="text-danger" *ngIf="userId.errors?.['required']">userId is required</small>
+                    <small class="text-danger"*ngIf="userId.errors?.['pattern']">enter valid userId</small>
+                </div>
+            </div>
+            <br>
+            Price
+            <div class="col-md-6"><input type="text" class="form-control" [(ngModel)]="reservation.price" required #price="ngModel"
+                [class.is-invalid]="price.invalid&&price.touched" disabled/>         
+                <!-- <small class="text-danger" [class.d-none]="password.valid||password.untouched">Required field</small> -->
+                <div *ngIf="price.errors && (price.invalid && price.touched)">
+                    <small class="text-danger" *ngIf="price.errors?.['required']">price is required</small>
+                    <small class="text-danger"*ngIf="price.errors?.['pattern']">enter valid price</small>
+                </div>
+            </div>
+            <br>
+            <!-- <form #profileform="ngForm"> -->
+            checkIn Date
+            <div class="col-md-6"><input type="date" class="form-control" [(ngModel)]="reservation.checkIn"required #checkIn="ngModel"
+                [class.is-invalid]="checkIn.invalid&&checkIn.touched"/>
+                <div *ngIf="checkIn.errors && (checkIn.invalid && checkIn.touched)">
+                    <small class="text-danger" *ngIf="checkIn.errors?.['required']">required field</small>
+                    <small class="text-danger"*ngIf="checkIn.errors?.['pattern']">enter a valid checkIn date</small>
+                </div>
+            </div>
+            <br>
+            checkOut Date
+            <div class="col-md-6"><input type="date" class="form-control"[(ngModel)]="reservation.checkOut"
+                #checkOut="ngModel" [class.is-invalid]="checkOut.invalid"/>
+                <!-- <small class="text-danger" [class.d-none]="firstname.valid||firstname.untouched">Required field</small> -->
+                <div *ngIf="checkOut.errors ">
+                    <small class="text-danger" *ngIf="checkOut.errors?.['required']">required field</small>
+                    <small class="text-danger"*ngIf="checkOut.errors?.['pattern']">enter a valid name</small>
+                </div>
+            </div>
+             
+        <div class="mt-5 text-right"><button class="btn btn-primary profile-button" type="button"(click)="saveReservation(reservation)">Save Reservation</button>
+        </div>
+    </div> 
+</div>
+
+
+  

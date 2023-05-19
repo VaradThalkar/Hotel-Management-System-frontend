@@ -1,0 +1,91 @@
+<nav class="navbar navbar-expand-sm navbar-da" style="background-color:black">
+    <div class="container-fluid">    
+       
+    <ul class = "nav navbar-nav">
+        <button (click)="back()"class="btn btn-primary navbar-btn">Go Back</button>      
+        
+    </ul>
+  
+    </div>
+  </nav>
+  <div style="background-image: url('https://www.comohotels.com/sites/default/files/COMO_Metropolitan_Miami_Beach_ZOOM_Backgrounds_4_0.jpg');background-repeat: no-repeat;background-attachment: fixed; background-size: cover;">
+  <div class="row d-flex justify-content-center">
+      <div class="col-lg-4">
+        <h2 style="text-align: center;"class="fw-bold mb-5"><b style="color:mediumblue">Register</b></h2>
+        <form #registerform="ngForm" (ngSubmit)="UserRegister()">
+          <!-- {{registerform.form.valid}} -->
+          <!--UserName-->
+          <div class="row"><div class="col-md-6 mb-4">
+            <div class="form-outline">
+              Username
+              <input type="text" name="userName" class="form-control" placeholder="UserName" [(ngModel)]="user.userName" required pattern="[A-Za-z]{1,32}"#userName="ngModel"
+              [class.is-invalid]="userName.invalid&&userName.touched"/>
+              <!-- <small class="text-danger" [class.d-none]="userName.valid||userName.untouched">Required field</small> -->
+              <div *ngIf="userName.errors && (userName.invalid && userName.touched)">
+                <small class="text-danger" *ngIf="userName.errors?.['required']">required field</small>
+                <small class="text-danger"*ngIf="userName.errors?.['pattern']">enter a valid user name</small>
+              </div>
+            </div>
+            </div>
+            <!--Name-->
+            <div class="col-md-6 mb-4">
+              <div class="form-outline">
+                Name
+                <input type="text" name="name" class="form-control" placeholder="Name" [(ngModel)]="user.name" required pattern="[A-Za-z]{1,32}"#name="ngModel"
+                [class.is-invalid]="name.invalid&&name.touched"/>
+                <!-- <small class="text-danger" [class.d-none]="firstname.valid||firstname.untouched">Required field</small> -->
+                <div *ngIf="name.errors && (name.invalid && name.touched)">
+                  <small class="text-danger" *ngIf="name.errors?.['required']">required field</small>
+                  <small class="text-danger"*ngIf="name.errors?.['pattern']">enter a valid name</small>
+                </div>
+              </div>
+            </div>
+            <!--ContactNumber-->
+            <div class="col-md-6 mb-4">
+              <div class="form-outline">
+                Contact Number
+                <input type="text" name="contactNumber" class="form-control" placeholder="contact Number"[(ngModel)]="user.contactNumber" #contactNumber="ngModel"
+                [class.is-invalid]="contactNumber.invalid"/>
+                <!-- <small class="text-danger" [class.d-none]="firstname.valid||firstname.untouched">Required field</small> -->
+                <div *ngIf="contactNumber.errors ">
+                  <small class="text-danger" *ngIf="contactNumber.errors?.['required']">required field</small>
+                  <small class="text-danger"*ngIf="contactNumber.errors?.['pattern']">enter a valid number</small>
+                </div>
+               
+              </div>
+            </div>
+            <!--AddharNumber-->
+              <div class="col-md-6 mb-4">
+              <div class="form-outline">
+                Aadhar Number
+                <input type="text" name="aadharNumber" class="form-control" placeholder="aadharNumber"[(ngModel)]="user.aadharNumber" required #aadharNumber="ngModel"
+                [class.is-invalid]="aadharNumber.invalid&&aadharNumber.touched"/>
+                <!-- <small class="text-danger" [class.d-none]="phonenumber.valid||phonenumber.untouched">Required field</small> -->
+                <div *ngIf="aadharNumber.errors && (aadharNumber.invalid && aadharNumber.touched)">
+                  <small class="text-danger" *ngIf="aadharNumber.errors?.['required']">required field</small>
+                  <small class="text-danger"*ngIf="aadharNumber.errors?.['pattern']">enter a valid addhar number</small>
+                </div>
+              </div>
+            </div>
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            Password
+            <input type="password" name="password" class="form-control" placeholder="Password"[(ngModel)]="user.password" required  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters"
+            #password="ngModel"          [class.is-invalid]="password.invalid&&password.touched"/>
+            <!-- <small class="text-danger" [class.d-none]="password.valid||password.untouched">Required field</small> -->
+            <div *ngIf="password.errors && (password.invalid && password.touched)">
+              <small class="text-danger" *ngIf="password.errors?.['required']">password is required</small>
+              <small class="text-danger"*ngIf="password.errors?.['pattern']">must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters</small>
+            </div>
+          </div>
+  <!-- Submit button -->
+          <button [disabled]="registerform.form.invalid"type="submit" class="btn btn-primary btn-block mb-4">
+           Register
+          </button>
+          <div style="text-align: right;">
+          <a routerLink="/login" routerLinkActive="active" class="nav-link" ><b style="color:mediumblue">Already a user?</b> <b style="color: red;">Login now</b></a></div>
+          
+        </div></form></div>
+          </div>
+          </div>

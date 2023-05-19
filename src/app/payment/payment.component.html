@@ -1,0 +1,156 @@
+<nav class="navbar navbar-expand-sm navbar-da" style="background-color:black">
+    <div class="container-fluid">
+        <button onclick="history.back()"class="btn btn-primary navbar-btn"style="width:80;height: 35;">Go Back</button>   
+  
+  <ul class = "nav navbar-nav">
+     <button id="home"(click)="contactUs()"> <i class="fa fa-phone"></i>Contact</button>
+     <button id="home"(click)="userProfile()"> <i  class="bi bi-person"></i>Profile</button>
+  
+  </ul>
+  <button (click)="logOut()"class="btn btn-danger navbar-btn">Log out</button>
+    </div>
+  </nav>
+  <div class="row d-flex justify-content-center">
+      <div class="col-lg-4">
+        <h2 style="text-align: center;"class="fw-bold mb-5"><b style="color:mediumblue">Payement</b></h2>
+        <form #payementform="ngForm" >
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <div class="form-outline">
+                  <label ><i class="fa fa-user"></i> UserName</label>
+                <input type="text" name="userName" class="form-control" placeholder="UserName" [(ngModel)]="user.userName"readonly />
+               
+        
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="form-outline">
+                  <label ><i class="fa fa-user"></i>name</label>
+                <input type="text" name="Name" class="form-control" placeholder="Name"[(ngModel)]="user.name"readonly />
+              </div>
+            </div>
+              <div class="col-md-6 mb-4">
+              <div class="form-outline">
+                  <label for="email"><i class="fa fa-envelope"></i> contactNumber</label>
+                <input type="text" name="contactNumber"class="form-control" placeholder="contactNumber"[(ngModel)]="user.contactNumber" readonly/>
+               
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="form-outline">
+                  <label class="	fa fa-bell">Hotel Name</label>
+                <input type="text" name="hotelName"class="form-control" placeholder="hotel name" [(ngModel)]="hotel.hotelName"readonly/>
+                
+              </div>
+            </div>
+          <div class="col-md-6 mb-4">
+          <div class="form-outline ">
+              <p>Check In</p>
+              <input type="date" name="checkIn"placeholder="check in"[(ngModel)]="payment.checkIn"readonly>           
+          </div>
+          </div>
+          <div class="col-md-6 mb-4">
+              <div class="form-outline ">
+              <p>Check Out</p>
+             
+              <input type="date" name="checkOut"placeholder="check out"[(ngModel)]="payment.checkOut"readonly>          
+              </div>
+          </div>
+            <div class="col-md-6 mb-4">
+              <div class="form-outline ">
+                  <label for="zip"class="	fa fa-inr">Total Price</label>
+              <input type="text" name="Price"class="form-control" placeholder="price "[(ngModel)]="payment.price"readonly />
+              
+              </div>
+            </div>
+            <label>Address Details</label>
+            <div class="col-md-6 mb-4">
+              <div class="form-outline">
+                  <label for="city"><i class="fa fa-institution"></i> City</label>
+                <input type="text" name="district" class="form-control" placeholder="district" [(ngModel)]="payment.district" />
+                
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="form-outline">
+                  <label class="	fa fa-map-marker">State</label>
+                <input type="text" name="state" class="form-control" placeholder="state" [(ngModel)]="payment.state">
+                 
+  
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="form-outline">
+                  <label class="	fa fa-map-pin">Zip Code</label>
+                <input type="text" name="zipcode" class="form-control" placeholder="zipcode"[(ngModel)]="payment.zipCode"/>
+               
+  
+              </div>
+            </div>
+           
+            <label for="fname">Accepted Cards</label>
+            <div class="icon-container">
+              <i class="fa fa-cc-visa" style="color:navy;"></i>
+              <i class="fa fa-cc-amex" style="color:blue;"></i>
+              <i class="fa fa-cc-mastercard" style="color:red;"></i>
+              <i class="fa fa-cc-discover" style="color:orange;"></i>
+            </div>
+  
+            <div class="col-md-6 mb-4">
+              <div class="form-outline ">
+                  <label clsss="fa fa-credit-card">Name on Card</label>
+              <input type="text" name="nameOnCard"class="form-control" placeholder="name on card "[(ngModel)]="payment.nameOnCard"
+              required  pattern="[a-zA-Z'-'\s]*"#nameoncard="ngModel" 
+                [class.is-invalid]="nameoncard.invalid&&nameoncard.touched"/>
+                <!-- <small class="text-danger" [class.d-none]="state.valid||state.untouched">Required field</small> -->
+                <div *ngIf="nameoncard.errors && (nameoncard.invalid && nameoncard.touched)">
+                  <small class="text-danger" *ngIf="nameoncard.errors?.['required']">required field</small>
+                  <small class="text-danger"*ngIf="nameoncard.errors?.['pattern']">enter a valid name</small>
+                </div> 
+             
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="form-outline ">
+                  <label class="fa fa-credit-card">Card Number</label>
+              <input type="text" name="cardNumber"class="form-control" placeholder="1111-2222-3333-4444"[(ngModel)]="payment.cardNumber"pattern="[0-9]{16}"
+              required #cardnumber="ngModel"
+                  [class.is-invalid]="cardnumber.invalid&&cardnumber.touched"/>
+                  <div *ngIf="cardnumber.errors &&(cardnumber.invalid && cardnumber.touched)">
+                      <small class="text-danger" *ngIf="cardnumber.errors?.['required']">required field</small>
+                      <small class="text-danger"*ngIf="cardnumber.errors?.['pattern']">please enter a 16 digit number</small>
+                    </div>
+             
+              </div>
+            </div>
+           
+            <div class="col-md-6 mb-4">
+              <div class="form-outline ">
+                  <label 	class="fa fa-calendar">Exp Date</label>
+              <input type="month" name="expiryYear"class="form-control" placeholder="expire year"[(ngModel)]="payment.expiryYear" 
+              required #expiryYear="ngModel"
+                  [class.is-invalid]="expiryYear.invalid&&expiryYear.touched"/>
+                  <small class="text-danger" [class.d-none]="expiryYear.valid||expiryYear.untouched">Required field</small>
+             
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="form-outline ">
+                  <label class="fa fa-credit-card">CVV</label>
+              <input type="text" name="cvv"class="form-control" placeholder="cvv"[(ngModel)]="payment.cvv" 
+              pattern="[0-9]{3}"
+              required #cvv="ngModel"
+                  [class.is-invalid]="cvv.invalid&&cvv.touched"/>
+                  <div *ngIf="cvv.errors &&(cvv.invalid && cvv.touched)">
+                      <small class="text-danger" *ngIf="cvv.errors?.['required']">required field</small>
+                      <small class="text-danger"*ngIf="cvv.errors?.['pattern']">please enter a 3 digit number</small>
+                    </div>
+             
+             
+              </div>
+            </div>
+          <!-- Submit button -->
+          <button [disabled]="payementform.form.invalid"type="submit" class="btn btn-primary btn-block mb-4"(click)="addToPayment()">
+           Pay
+          </button> 
+          <button type="submit" class="btn btn-primary btn-block mb-4" (click)="cancelPayment()">cancelPayment</button>

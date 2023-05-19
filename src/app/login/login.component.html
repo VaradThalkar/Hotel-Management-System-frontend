@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-sm navbar-da" style="background-color:black">
+    <div class="container-fluid">    
+       
+    <ul class = "nav navbar-nav">
+        
+     <button (click)="back()"class="btn btn-primary navbar-btn">Go Back</button>      
+        
+    </ul>
+  
+    </div>
+  </nav>
+  <div>
+  <div class="row d-flex justify-content-center">
+      <div class="col-lg-4">
+        <h2 style="text-align: center;"class="fw-bold mb-5"><b style="color:mediumblue" >Login</b></h2>
+        <form #registerform="ngForm" (ngSubmit)="userLogin()">
+          <small class="text-danger">{{message}}</small>
+        
+          <div class="form-outline mb-4">
+            <input type="text" name="userName" class="form-control" placeholder="userName"[(ngModel)]="user.userName" 
+            />
+            </div>
+           <div class="form-outline mb-4">
+            <input type="password" name="password" class="form-control" placeholder="Password"[(ngModel)]="user.password" />
+          </div>
+          
+          <button type="submit" class="btn btn-primary btn-block mb-4">
+              Login
+             </button>
+             <div style="text-align: right;">
+              <a routerLink="/userSignUp" routerLinkActive="active" class="nav-link" ><b style="color:mediumblue">Not a user yet?</b><b style="color: red;">Register now</b></a></div>
+              <div><a routerLink="/forgotPassword" routerLinkActive="active" class="nav-link" ><b style="color:blue;">Forgot Password</b></a></div>
+        </form></div>
+  </div>
+   
+  
+  

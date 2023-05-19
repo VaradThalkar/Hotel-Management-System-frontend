@@ -1,0 +1,49 @@
+.BackgroundImage{
+  padding: 1px;
+  height: 300px;
+}
+  
+.header {
+  padding: 80px;
+  font-family: none;
+  text-align: center;
+  background-image: url(/assets/manglore.jpg);
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  height: 300px;
+  }
+  
+  /* Increase the font size of the heading */
+  .header h1 {
+    font-size: 40px;
+    
+  }
+  #home {
+    background-color: #04cbfa;/* Blue background */
+    border: none; /* Remove borders */
+    color: rgb(255, 255, 255); /* White text */
+    padding: 12px 16px; /* Some padding */
+    font-size: 16px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+    
+  }
+  #login{
+    background-color: #04cbfa;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    left: 1074px;
+    position: relative;
+  }
+  #login:hover{
+    background-color:rgb(1, 165, 214);
+    color:#141619;
+  }
+  /* Darker background on mouse-over */
+ #home:hover {
+    background-color:rgb(1, 165, 214);
+    color:#141619;
+  }

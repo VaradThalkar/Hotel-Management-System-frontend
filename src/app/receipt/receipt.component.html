@@ -1,0 +1,131 @@
+<nav class="navbar navbar-expand-sm navbar-da" style="background-color:black">
+    <div class="container-fluid">
+        <button onclick="history.back()"class="btn btn-primary navbar-btn"style="width:80;height: 35;" >Back</button>
+  
+  <ul class = "nav navbar-nav">
+    
+  
+  
+  </ul>
+  <button (click)="logOut()"class="btn btn-danger navbar-btn">Log out</button>
+    </div>
+  </nav>
+  <div class="container">
+  <div class="card">
+      <div class="card-body">
+  <div class="row d-flex justify-content-center">
+      <div class="col-lg-4">
+        <h2 style="text-align: center;"class="fw-bold mb-5"><b style="color:mediumblue">Receipt</b></h2>
+        <form #payementform="ngForm" >
+          <!-- 2 column grid layout with text inputs for the first and last names -->
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <div class="form-outline">
+                  <label ><i class="fa fa-user"></i> userName</label>
+                <input type="text" name="userName" class="form-control" placeholder="User Name" [(ngModel)]="payment.userName"readonly />
+               
+        
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="form-outline">
+                  <label ><i class="fa fa-user"></i>Name</label>
+                <input type="text" name="Name" class="form-control" placeholder="Name"[(ngModel)]="payment.name"readonly />
+                
+  
+               
+              </div>
+            </div>
+              <div class="col-md-6 mb-4">
+              <div class="form-outline">
+                  <label for="email"><i class="fa fa-envelope"></i>Contact Number</label>
+                <input type="text" name="emailID"class="form-control" placeholder="email"[(ngModel)]="payment.contactNumber" readonly/>
+               
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="form-outline">
+                  <label for="city"><i class="fa fa-institution"></i> City</label>
+                <input type="text" name="district" class="form-control" placeholder="district" [(ngModel)]="payment.district"readonly />
+               
+  
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="form-outline">
+                  <label class="	fa fa-map-marker">State</label>
+                <input type="text" name="state" class="form-control" placeholder="state" [(ngModel)]="payment.state"readonly>
+               
+  
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="form-outline">
+                  <label class="	fa fa-map-pin">Zip Code</label>
+                <input type="text" name="zipcode" class="form-control" placeholder="zipcode"[(ngModel)]="payment.zipCode"readonly/>
+                
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                    <label class="	fa fa-bell">Hotel Name</label>
+                  <input type="text" name="hotelName"class="form-control" placeholder="hotel name" [(ngModel)]="payment.hotelName"readonly/>
+                  
+                </div>
+            </div>
+          <div class="col-md-6 mb-4">
+          <div class="form-outline ">
+              <p>Check In</p>
+              <input type="date" name="checkIn"placeholder="check in"[(ngModel)]="payment.checkIn"readonly>      
+ 
+          </div>
+          </div>
+          <div class="col-md-6 mb-4">
+              <div class="form-outline ">
+              <p>Check Out</p>
+             
+              <input type="date" name="checkOut"placeholder="check out"[(ngModel)]="payment.checkOut"readonly>           
+         
+              </div>
+          </div>
+            <div class="col-md-6 mb-4">
+              <div class="form-outline ">
+                  <label for="zip"class="	fa fa-inr">Price</label>
+              <input type="text" name="price"class="form-control" placeholder="price "[(ngModel)]="payment.price"readonly />
+              
+              </div>
+            </div>
+            
+  
+            <div class="col-md-6 mb-4">
+              <div class="form-outline ">
+                  <label clsss="fa fa-credit-card">Name on Card</label>
+              <input type="text" name="nameOnCard"class="form-control" placeholder="name on card "[(ngModel)]="payment.nameOnCard"readonly/>
+             
+             
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="form-outline ">
+                  <label class="fa fa-credit-card">Card Number</label>
+              <input type="text" name="cardNumber"class="form-control" placeholder="1111-2222-3333-4444"[(ngModel)]="payment.cardNumber"readonly/>
+             
+              </div>
+            </div>
+           
+            <div class="col-md-6 mb-4">
+              <div class="form-outline ">
+                  <label 	class="fa fa-calendar">Exp Date</label>
+              <input type="month" name="expYear"class="form-control" placeholder="expire year"[(ngModel)]="payment.expiryYear" 
+              readonly/>
+              </div>
+            </div>
+          
+          </div>
+        </form>        </div>
+        
+    </div>
+    <button class="payment" (click)="paymentSucess()" style="width:100%"> Payment Success</button>
+
+</div>
+         >

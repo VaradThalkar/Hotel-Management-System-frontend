@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-sm navbar-da" style="background-color:black">
+           
+    <div class="container-fluid">
+        <button (click)="back()"class="btn btn-primary navbar-btn"style="width:80;height: 35;">Go Back</button>   
+
+    <ul class = "nav navbar-nav">
+        
+       
+        <li class = "nav-item">
+            <a routerLink="/adminHome" routerLinkActive="active" class="nav-link" ><p style="color:antiquewhite">Home </p></a>
+        </li>
+       
+    </ul>
+    <button (click)="logOut()"class="btn btn-danger navbar-btn">Log out</button>
+    </div>
+</nav>
+
+<h2 style="text-align:center">Hotel List</h2>
+<div class="card">
+    <div class="card-body">
+<table class = "table table-striped">
+    <thead >
+        <tr>
+            <th> Hotel Name</th>
+            <th> address </th>
+            <th> numberOfRooms</th>
+            <th> price </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let hotel of hotels" >
+            <td> {{ hotel.hotelName }} </td>
+            <td> {{ hotel.address}} </td>
+            <td> {{ hotel.numberOfRooms}}</td>
+            <td> {{hotel.price}}</td>
+           
+            <td><button type="button" class="btn btn-info"(click)="updateHotel(hotel.hotelId)">Update</button></td> 
+            <td> <button type="button" class="btn btn-danger"(click)="deleteHotel(hotel.hotelId)">Delete</button> </td>
+         </tr>
+    </tbody>
+</table>
+    </div></div>
+
